@@ -21,17 +21,17 @@ const defaultDifficulty = 'easy, medium, hard'
 const defaultCategories: string[] = []
 
 export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<QuizModel[] | any>
+  request: NextApiRequest,
+  response: NextApiResponse<QuizModel[] | any>
 ) {
   try {
-    const { categories = defaultCategories, questionsLimit = defaultQuestionsLimit, difficulty = defaultDifficulty} = req?.query
-    let result = await fetch(`${TRIVIA_API_URL}?limit=${questionsLimit}&difficulty=${difficulty}&categories=${categories}`)
-    result = await result.json()
-    res.status(200).json(result)
+    const { categories = defaultCategories, questionsLimit = defaultQuestionsLimit, difficulty = defaultDifficulty} = request?.query
+    let questions = await fetch(`${TRIVIA_API_URL}?limit=${questionsLimit}&difficulty=${difficulty}&categories=${categories}`)
+    questions = await questions.json()
+    response.status(200).json(questions)
 
   } catch (error) {
     console.log(`Error /api/trivia/ error =${error}`)
-    return res.status(500).json({ error })
+    return response.status(500).json({ error })
   }
 }
