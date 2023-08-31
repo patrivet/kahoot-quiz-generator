@@ -25,11 +25,16 @@ export default async function handler(
   response: NextApiResponse<QuizModel[] | any>
 ) {
   try {
-    const { categories = defaultCategories, questionsLimit = defaultQuestionsLimit, difficulty = defaultDifficulty} = request?.query
-    let questions = await fetch(`${TRIVIA_API_URL}?limit=${questionsLimit}&difficulty=${difficulty}&categories=${categories}`)
+    const {
+      categories = defaultCategories,
+      questionsLimit = defaultQuestionsLimit,
+      difficulty = defaultDifficulty,
+    } = request?.query
+    let questions = await fetch(
+      `${TRIVIA_API_URL}?limit=${questionsLimit}&difficulty=${difficulty}&categories=${categories}`
+    )
     questions = await questions.json()
     response.status(200).json(questions)
-
   } catch (error) {
     console.log(`Error /api/trivia/ error =${error}`)
     return response.status(500).json({ error })
