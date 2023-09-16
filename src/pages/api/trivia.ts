@@ -28,7 +28,7 @@ export default async function handler(
     const {
       categories = defaultCategories,
       questionsLimit = defaultQuestionsLimit,
-      difficulty = defaultDifficulty,
+      difficulty = defaultDifficulty
     } = request?.query
     let questions = await fetch(
       `${TRIVIA_API_URL}?limit=${questionsLimit}&difficulty=${difficulty}&categories=${categories}`
