@@ -1,5 +1,17 @@
-const apiDefaults = { // ! fixme: not in use atm - this doesnt initialise the 2 arrays for some reason.
-  categories: ['science', 'film_and_tv', 'music', 'history', 'geography', 'art_and_literature', 'sport_and_leisure', 'general_knowledge', 'science', 'food_and_drink'], 
+const apiDefaults = {
+  // ! fixme: not in use atm - this doesnt initialise the 2 arrays for some reason.
+  categories: [
+    'science',
+    'film_and_tv',
+    'music',
+    'history',
+    'geography',
+    'art_and_literature',
+    'sport_and_leisure',
+    'general_knowledge',
+    'science',
+    'food_and_drink'
+  ],
   difficulties: ['easy', 'medium', 'hard'],
   limit: 50
 }
@@ -9,7 +21,11 @@ export const triviaAPIDetails = {
 }
 
 interface Helpers {
-  buildAPI_URL: (limit?: number, difficulty?: string[], categories?: string[]) => string,
+  buildAPI_URL: (
+    limit?: number,
+    difficulty?: string[],
+    categories?: string[]
+  ) => string
   anotherHelper: () => void
 }
 
@@ -22,7 +38,18 @@ const helpers: Helpers = {
   buildAPI_URL: (
     limit = 50,
     difficulties = ['easy', 'medium', 'hard'],
-    categories = ['science', 'film_and_tv', 'music', 'history', 'geography', 'art_and_literature', 'sport_and_leisure', 'general_knowledge', 'science', 'food_and_drink']
+    categories = [
+      'science',
+      'film_and_tv',
+      'music',
+      'history',
+      'geography',
+      'art_and_literature',
+      'sport_and_leisure',
+      'general_knowledge',
+      'science',
+      'food_and_drink'
+    ]
   ) => {
     const categoryParams = categories.join(',')
     const difficultyParams = difficulties.join(',')
