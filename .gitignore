@@ -35,5 +35,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# IDE settings files
+/.vscode/settings.json
+
 # Design & notes folder
 designs_and_notes
