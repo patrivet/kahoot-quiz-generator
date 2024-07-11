@@ -1,14 +1,13 @@
 import { NextPage } from 'next'
 import { useState } from 'react'
 
-const GenerateQuiz: NextPage = () => {
+const Generate: NextPage = () => {
   const [topping, setTopping] = useState("Medium")
 
   const onOptionChange = e => {
     setTopping(e.target.value)
   }
 
-  // return <h1>GENERATOR PAGE</h1>
   return (
     <div className="App">
       <fieldset>
@@ -49,7 +48,7 @@ const GenerateQuiz: NextPage = () => {
   )
 }
 
-export default GenerateQuiz
+export default Generate
 
 
 
